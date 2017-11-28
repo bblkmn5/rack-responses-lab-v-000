@@ -1,13 +1,12 @@
-require 'time'
 class Application
 
   def call(env)
     resp = Rack::Response.new
-
-    if Time.parse("12:00") < 12:00
-      puts "Good Morning!"
+    now = Time.now
+    if now.hour >= 12:00
+      resp.write "Good Afternoon"
     else
-      puts "Good Afternoon"
+      resp.write "Good Morning"
     end
 
     resp.finish
