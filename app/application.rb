@@ -4,7 +4,7 @@ class Application
   def call(env)
     resp = Rack::Response.new
 
-    if Time.now < 12
+    if Time.parse("12:00") < 12
       puts "Good Morning!"
     else
       puts "Good Afternoon"
